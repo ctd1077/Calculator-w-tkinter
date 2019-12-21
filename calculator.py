@@ -12,25 +12,44 @@ def onClick():
     myLabel = Label(root, text=hello)
     myLabel.pack()
 
-def button_add():
-    return
+def onClick(number):
+    #e.delete(0,END)
+    current = e.get() # First save the current number displayed
+    e.delete(0, END) # Next delete the current number displayed
+    e.insert(0, str(current) + str(number)) # Make sure the 
+    # numbers are str's and concat the new number onto the old.
+
+def onClear():
+    e.delete(0,END)
+
+def onAdd():
+    first_num = e.get()
+    global f_num
+    f_num = int(first_num)
+    e.delete(0,END)
+
+def onEqual():
+    second = int(e.get())
+    e.delete(0,END)
+    e.insert(0, f_num + second)
+
+
 
 # Define Buttons
+button_1 = Button(root, text='1', command=lambda: onClick(1), padx=40, pady=20)
+button_2 = Button(root, text='2', command=lambda: onClick(2), padx=40, pady=20)
+button_3 = Button(root, text='3', command=lambda: onClick(3), padx=40, pady=20)
+button_4 = Button(root, text='4', command=lambda: onClick(4), padx=40, pady=20)
+button_5 = Button(root, text='5', command=lambda: onClick(5), padx=40, pady=20)
+button_6 = Button(root, text='6', command=lambda: onClick(6), padx=40, pady=20)
+button_7 = Button(root, text='7', command=lambda: onClick(7), padx=40, pady=20)
+button_8 = Button(root, text='8', command=lambda: onClick(8), padx=40, pady=20)
+button_9 = Button(root, text='9', command=lambda: onClick(9), padx=40, pady=20)
+button_0 = Button(root, text='0', command=lambda: onClick(0), padx=40, pady=20)
 
-button_1 = Button(root, text='1', command=button_add, padx=40, pady=20)
-button_2 = Button(root, text='2', command=button_add, padx=40, pady=20)
-button_3 = Button(root, text='3', command=button_add, padx=40, pady=20)
-button_4 = Button(root, text='4', command=button_add, padx=40, pady=20)
-button_5 = Button(root, text='5', command=button_add, padx=40, pady=20)
-button_6 = Button(root, text='6', command=button_add, padx=40, pady=20)
-button_7 = Button(root, text='7', command=button_add, padx=40, pady=20)
-button_8 = Button(root, text='8', command=button_add, padx=40, pady=20)
-button_9 = Button(root, text='9', command=button_add, padx=40, pady=20)
-button_0 = Button(root, text='0', command=button_add, padx=40, pady=20)
-
-button_add = Button(root, text='+', command=button_add, padx=40, pady=20)
-button_clear = Button(root, text='C', command=button_add, padx=40, pady=20)
-button_equal = Button(root, text='=', command=button_add, padx=90, pady=20)
+button_add = Button(root, text='+', command=lambda: onAdd(), padx=40, pady=20)
+button_clear = Button(root, text='C', command=onClear, padx=40, pady=20) # lambda not needed here
+button_equal = Button(root, text='=', command=lambda: onEqual(), padx=90, pady=20)
 
 
 
